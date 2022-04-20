@@ -2,22 +2,13 @@
 
 <PageTitle>Test</PageTitle>
 
-<p>@message</p>
+<p>test</p>
+
+<input type="password" @bind="password" />
+
+<input type="hidden" @bind="password" />
 
 @code{
-    private string message;
-
-    protected override async Task OnInitializedAsync()
-    {
-        try
-        {
-            object o = null;
-            message = o.ToString();
-        }
-        catch(Exception e)
-        {
-            message = e.ToString();
-        }
-    }
+    private string? password;
 }
 
