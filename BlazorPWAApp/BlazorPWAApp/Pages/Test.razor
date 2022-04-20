@@ -1,21 +1,17 @@
 ﻿@page "/test"
-@using System.Text.RegularExpressions
-@inject HttpClient Http
 
 <PageTitle>Security Scanning Test</PageTitle>
 
-<input type="text" @bind="str" />
-<button @onclick="ButtonClick">テスト</button>
-<p>@ret</p>
-
-@code{
-    private string str = "a";
-    private int ret;
-
-    private void ButtonClick()
+@{
+    Exception e = null;
+    try
     {
-        Regex regex = new Regex("/^(([a-zA-Z0-9])+)+$/");
-        ret = regex.Matches(str).Count;
+        object o = null;
+        o.ToString();
+    }catch(Exception ex)
+    {
+        e = ex;
     }
 }
 
+@e?.ToString()
