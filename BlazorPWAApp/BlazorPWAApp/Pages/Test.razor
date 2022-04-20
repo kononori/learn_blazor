@@ -1,29 +1,21 @@
 ﻿@page "/test"
+@using System.Text.RegularExpressions
 @inject HttpClient Http
 
 <PageTitle>Security Scanning Test</PageTitle>
 
-<p>test</p>
-
-<input type="text" @bind="user" />
-<input id="pass" type="password" @bind="password" />
+<input type="text" @bind="str" />
 <button @onclick="ButtonClick">テスト</button>
+<p>@ret</p>
 
 @code{
-    private string? user;
-    private string? password;
-    private ResultObject? result;
+    private string str = "a";
+    private int ret;
 
-    private async void ButtonClick()
+    private void ButtonClick()
     {
-        result = await Http.GetFromJsonAsync<ResultObject>("requestapi?user=" + user + "&password=" + password);
-    }
-
-    private class ResultObject
-    {
-        public int Code { get; set; }
-
-        public string? Message { get; set; }
+        Regex regex = new Regex("/^(([a-zA-Z0-9])+)+$/");
+        ret = regex.Matches(str).Count;
     }
 }
 
