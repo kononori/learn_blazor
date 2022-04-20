@@ -1,0 +1,23 @@
+﻿@page "/test"
+
+<PageTitle>Test</PageTitle>
+
+<p>@message</p>
+
+@code{
+    private string message;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            object o = null;
+            message = o.ToString();
+        }
+        catch(Exception e)
+        {
+            message = e.ToString();
+        }
+    }
+}
+
