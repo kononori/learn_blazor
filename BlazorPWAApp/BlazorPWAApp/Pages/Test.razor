@@ -4,9 +4,16 @@
 
 <p>test</p>
 
-<input type="password" @bind="password" />
+<input id="pass" type="password" @bind="password" />
+
+<p id="text"></p>
 
 <input type="hidden" @bind="password" />
+
+<script>
+    var elm = document.getElementById('pass');
+    alert(elm.nodeValue);
+</script>
 
 @code{
     private string? password;
