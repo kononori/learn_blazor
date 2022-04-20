@@ -1,21 +1,29 @@
 ﻿@page "/test"
+@inject HttpClient Http
 
-<PageTitle>Test</PageTitle>
+<PageTitle>Security Scanning Test</PageTitle>
 
 <p>test</p>
 
+<input type="text" @bind="user" />
 <input id="pass" type="password" @bind="password" />
-
-<p id="text"></p>
-
-<input type="hidden" @bind="password" />
-
-<script>
-    var elm = document.getElementById('pass');
-    alert(elm.nodeValue);
-</script>
+<button @onclick="ButtonClick">テスト</button>
 
 @code{
+    private string? user;
     private string? password;
+    private ResultObject? result;
+
+    private async void ButtonClick()
+    {
+        result = await Http.GetFromJsonAsync<ResultObject>("requestapi?user=" + user + "&password=" + password);
+    }
+
+    private class ResultObject
+    {
+        public int Code { get; set; }
+
+        public string? Message { get; set; }
+    }
 }
 
