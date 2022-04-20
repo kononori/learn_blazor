@@ -145,10 +145,3 @@ $RECYCLE.BIN/
 
 # Mac crap
 .DS_Store
-
-/BlazorWASM1/BlazorWASM1/Client/bin/
-/BlazorWASM1/BlazorWASM1/Client/obj/
-/BlazorWASM1/BlazorWASM1/Server/bin/
-/BlazorWASM1/BlazorWASM1/Server/obj/
-/BlazorWASM1/BlazorWASM1/Shared/bin/
-/BlazorWASM1/BlazorWASM1/Shared/obj/
